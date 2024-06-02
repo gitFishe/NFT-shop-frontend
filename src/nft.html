@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project</title>
+    @include('partials/head.html')
+    <link rel="stylesheet" href="css/sections/header.css" />
+    <link rel="stylesheet" href="css/sections/footer.css" />
+    <link rel="stylesheet" href="css/sections/nft.css" />
+    <link rel="stylesheet" href="css/sections/chart.css" />
+    <link rel="stylesheet" href="css/sections/more.css" />
+
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="css/sections/about.css" />-->
+</head>
+<body class="page__body" >
+<div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+        @include('partials/nft.html')
+        @include('partials/chart.html')
+        @include('partials/more.html')
+    </main>
+    @include('partials/footer.html')
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="module" src="js/sections/header.js" async defer></script>
+    <script type="module" src="js/sections/nft.js" async defer></script>
+    <script type="module" src="js/main.js" defer></script>
+</div>
+</body>
+</html>

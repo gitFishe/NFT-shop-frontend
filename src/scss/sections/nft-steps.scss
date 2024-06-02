@@ -1,0 +1,53 @@
+@import "../mixins";
+
+.nft-steps {
+  margin-top: rem(100);
+  background-color: #1e2931;
+  padding:rem(100) 0;
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    >* span {
+      color: var(--grey-light);
+    }
+  }
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: rem(40);
+    width: 100%;
+    >:not(:last-child) {
+      margin-right: rem(30);
+    }
+  }
+  &__block {
+    width: calc(100% / 4);
+    min-height: rem(250);
+    text-align: left;
+    &-name {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: rem(20);
+      >:not(:last-child) {
+        margin-right: rem(20);
+      }
+    }
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(80);
+      height: rem(80);
+      border-radius: rem(5);
+      background-color: #303a41;
+      flex-shrink: 0;
+
+      img {
+        width: rem(50);
+        height: rem(50);
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "../mixins";
+
+.wallets {
+  background-color: var(--bg);
+  padding-top: rem(100);
+  &__content {
+    text-align: center;
+    h2 {
+      margin-top: rem(20);
+    }
+  }
+  &__group {
+    display: flex;
+    margin-top: rem(40);
+    >:not(:last-child) {
+      margin-right: rem(30);
+    }
+  }
+  &__block {
+    padding: rem(30);
+    border-radius: rem(20);
+    background-color: #121e27;
+    width: rem(268);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      margin-top: rem(20);
+      color: var(--white-dark);
+      &:hover {
+        background: var(--gradient-blue);
+        color: var(--grey-dark);
+      }
+    }
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__img {
+    border: rem(44) solid #1e2932;
+    position: relative;
+    max-width: rem(208);
+    width: 100%;
+    border-radius: 50%;
+
+    &::before {
+       content: '';
+       display: block;
+       width: 100%;
+       padding-top: 100%;
+     }
+
+    & > * {
+      transition: all var(--hover-transition);
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+     }
+   }
+}

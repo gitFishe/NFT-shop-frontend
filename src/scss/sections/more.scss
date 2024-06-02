@@ -1,0 +1,9 @@
+@import "../mixins";
+
+.more {
+  padding-top: rem(50);
+  &__main {
+    display: flex;
+
+  }
+}

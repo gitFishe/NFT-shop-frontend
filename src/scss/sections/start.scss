@@ -1,0 +1,25 @@
+@import "../mixins";
+
+.start{
+  background-color: var(--bg);
+  position: relative;
+  z-index: 0;
+  padding-top: rem(150);
+  animation-duration: .75s;
+  &__content {
+    max-width: rem(800);
+    h1 {
+      margin-bottom: rem(30);
+    }
+    h5 {
+      color: var(--grey-light);
+    }
+  }
+  &__button {
+    margin-top: rem(40);
+    >:not(:last-child) {
+      margin-right: rem(30);
+    }
+  }
+}
+  

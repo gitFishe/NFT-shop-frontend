@@ -1,0 +1,18 @@
+@import "../mixins";
+
+.trending-creators {
+  background-color: var(--bg);
+  padding-top: rem(100);
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px -15px 0;
+    .card {
+      margin: 30px 15px 0 ;
+      width: calc(100% / 4 - 30px);
+      button {
+        transition: all var(--hover-transition-faster);
+      }
+    }
+  }
+}

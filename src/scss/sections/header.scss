@@ -1,0 +1,43 @@
+@import "../mixins";
+
+.header {
+  background-color: var(--bg);
+  position: relative;
+  z-index: 0;
+  padding: rem(20) 0;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    .input {
+      margin-left: auto;
+      border: 1px solid var(--grey);
+    }
+    .logo {
+      margin-right: rem(80);
+    }
+    .btn, .avatar {
+      margin-left: rem(25);
+    }
+    .nav {
+      ul {
+        display: flex;
+        align-items: center;
+        >:not(:last-child) {
+          margin-right: rem(50);
+        }
+        li {
+          a {
+            text-decoration: underline rem(3) var(--bg);
+            transition: text-decoration-color var(--hover-transition-faster);
+          }
+          &:hover{
+            a {
+              text-decoration: underline rem(3) white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

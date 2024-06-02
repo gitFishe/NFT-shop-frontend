@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project</title>
+  @include('partials/head.html')
+  <link rel="stylesheet" href="css/sections/start.css" />
+  <link rel="stylesheet" href="css/sections/header.css" />
+  <link rel="stylesheet" href="css/sections/footer.css" />
+  <link rel="stylesheet" href="css/sections/top-selling.css" />
+  <link rel="stylesheet" href="css/sections/trending-auction.css" />
+  <link rel="stylesheet" href="css/sections/influencers.css" />
+  <link rel="stylesheet" href="css/sections/nft-steps.css" />
+  <link rel="stylesheet" href="css/sections/wallets.css" />
+  <link rel="stylesheet" href="css/sections/trending-creators.css" />
+  <link rel="stylesheet" href="css/sections/nftify.css" />
+  <link rel="stylesheet" href="wowjs/css/libs/animate.css" />
+<!--  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="css/sections/about.css" />-->
+</head>
+<body class="page__body" >
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      @include('partials/start.html')
+      @include('partials/top-selling.html')
+      @include('partials/trending-auction.html')
+      @include('partials/wallets.html')
+      @include('partials/trending-creators.html')
+      @include('partials/nftify.html')
+      @include('partials/nft-steps.html')
+    </main>
+    @include('partials/footer.html')
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="module" src="js/wow.js"></script>
+    <script type="module" src="js/sections/start.js" async defer></script>
+    <script type="module" src="js/sections/header.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+  </div>
+</body>
+</html>

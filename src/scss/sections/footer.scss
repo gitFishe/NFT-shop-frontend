@@ -1,0 +1,115 @@
+@import "../mixins";
+
+.footer {
+  padding:rem(100) 0 rem(40);
+  background-color: var(--bg);
+  &__email {
+    margin-bottom: rem(40);
+    display: flex;
+    align-items: center;
+    a {
+      margin-right: auto;
+    }
+    >:not(:first-child) {
+      margin-left: rem(20);
+    }
+    label {
+      max-width: rem(500);
+      width: 100%;
+    }
+    button {
+      width: rem(105);
+    }
+  }
+  &__main {
+    display: flex;
+    align-items: center;
+
+    padding-top: rem(40);
+    background: linear-gradient(#05121B, #05121B) padding-box,
+    linear-gradient(270deg, rgba(70,138,247,1) 0%, rgba(88,152,249,1) 15%, rgba(111,169,250,1) 28%, rgba(130,183,251,1) 39%, rgba(153,200,254,1) 50%, rgba(166,207,253,1) 60%, rgba(182,216,254,1) 70%, rgba(196,223,253,1) 80%, rgba(208,229,253,1) 90%, rgba(216,233,254,1) 100%) border-box;
+    border-top:1px solid transparent;
+  }
+  &__community {
+    max-height: rem(200);
+    max-width: rem(350);
+    margin-right:rem(105);
+    >:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+  &__media{
+    display: flex;
+    >:not(:last-child) {
+      margin-right: rem(20);
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: #121e27;
+      width: rem(50);
+      height: rem(50);
+      border-radius: 50%;
+    }
+  }
+  .nav {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: rem(200);
+      margin: auto rem(105) auto 0;
+      background-color: var(--grey);
+    }
+
+    ul {
+      width: 100%;
+      li {
+        width: fit-content;
+        &:not(:last-of-type) {
+          margin-bottom: rem(30);
+        }
+
+        a {
+          color: var(--grey-light);
+          display: flex;
+          align-items: center;
+          padding-left: rem(8);
+          transition: color var(--hover-transition);
+          &::before {
+            content: '';
+            margin-right: rem(5);
+            width: rem(3);
+            height: rem(3);
+            border-radius: rem(5);
+            background: var(--gradient-blue);
+            transition: width var(--hover-transition);
+          }
+          &:hover {
+            color: var(--white);
+            &::before {
+              width: rem(12);
+            }
+          }
+        }
+      }
+    }
+  }
+  &__under {
+    margin-top: rem(40);
+    padding-top: rem(40);
+    border-top:1px solid transparent;
+    text-align: center;
+    color: var(--white);
+
+
+    background: linear-gradient(#05121B, #05121B) padding-box,
+    linear-gradient(270deg, rgba(70,138,247,1) 0%, rgba(88,152,249,1) 15%, rgba(111,169,250,1) 28%, rgba(130,183,251,1) 39%, rgba(153,200,254,1) 50%, rgba(166,207,253,1) 60%, rgba(182,216,254,1) 70%, rgba(196,223,253,1) 80%, rgba(208,229,253,1) 90%, rgba(216,233,254,1) 100%) border-box;
+  }
+}

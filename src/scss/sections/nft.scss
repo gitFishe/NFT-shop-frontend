@@ -1,0 +1,197 @@
+@import "../mixins";
+
+
+.nft {
+  padding-top: rem(50);
+  &__main {
+    padding: rem(50);
+    background-color: var(--bg-light);
+    border-radius: rem(10);
+    display: flex;
+    min-height: 600px;
+    max-height: 800px;
+  }
+  &__img {
+    position: relative;
+    max-width: rem(814);
+    width: 100%;
+    margin-right:rem(30);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 86.1%;
+    }
+
+    & > * {
+      border-radius: rem(10);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    flex-shrink: 2;
+    padding-right: rem(34);
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: rem(4);
+      border-radius: rem(5);
+      background-color: var(--grey-dark);
+      &-track {
+        background-color: var(--grey-dark);
+        border-radius: rem(5);
+      }
+      &-thumb {
+        background: var(--gradient-blue);
+        border-radius: rem(5);
+      }
+    }
+  }
+  &__name {
+    margin-bottom: rem(20);
+    display: flex;
+    justify-content: space-between;
+  }
+  &__settings {
+    margin-left: rem(15);
+    flex-shrink: 0;
+    width: rem(50);
+    height: rem(50);
+    border-radius: 50%;
+    background-color: #354047;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    position: relative;
+    &-menu{
+      cursor: auto;
+      position: absolute;
+      top: rem(70);
+      right: 0;
+      width: rem(150);
+      padding: rem(10);
+      border-radius: rem(10);
+      background-color: rgba(60, 60, 60);
+      display: none;
+      button {
+        width: 100%;
+        padding: rem(10);
+        border-radius: rem(10);
+        background-color: rgba(87, 87, 87, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__description {
+    padding-bottom: rem(20);
+    border-bottom: 1px solid var(--grey);
+  }
+  &__owners {
+    display: flex;
+    margin-top: rem(30);
+    >:not(:last-child) {
+      margin-right: rem(20);
+    }
+  }
+  &__price {
+    margin-top: rem(30);
+    >span {
+      color: var(--grey-light);
+      display: block;
+      margin-bottom: rem(14);
+    }
+    &-line {
+      display: flex;
+      align-items: center;
+      >:not(:last-child) {
+        margin-right: rem(10);
+      }
+      span {
+        color: var(--grey-light);
+      }
+    }
+  }
+  &__buttons {
+    margin-top: rem(30);
+    display: flex;
+    justify-content: space-between;
+    >:first-child {
+      background: linear-gradient(#121e27, #121e27) padding-box,
+      linear-gradient(270deg, rgba(70,138,247,1) 0%, rgba(88,152,249,1) 15%, rgba(111,169,250,1) 28%, rgba(130,183,251,1) 39%, rgba(153,200,254,1) 50%, rgba(166,207,253,1) 60%, rgba(182,216,254,1) 70%, rgba(196,223,253,1) 80%, rgba(208,229,253,1) 90%, rgba(216,233,254,1) 100%) border-box;
+    }
+    >* {
+      font-weight: 600 !important;
+      width: calc(100% / 2 - 15px) !important;
+    }
+  }
+  &__tabs {
+    display: flex;
+    margin-top: rem(30);
+    border-bottom: 1px solid var(--grey);
+    position: relative;
+
+    >:not(:last-child) {
+      margin-right: rem(50);
+    }
+    &-elem {
+      cursor: pointer;
+      padding-bottom: rem(15);
+    }
+  }
+  &__title {
+    margin-top: rem(50);
+    padding-bottom: rem(20);
+    border-bottom: 1px solid var(--grey);
+  }
+  &__pages {
+    margin-top: rem(30);
+    &-elem {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+
+
+
+  .owner {
+    padding: rem(10);
+    border-radius: rem(5);
+    border:1px solid var(--grey);
+    display: flex;
+    align-items: center;
+    width: rem(300);
+    &__img {
+      flex-shrink: 0;
+      margin-right: rem(20);
+      width: rem(50);
+      height: rem(50);
+      border-radius:50%;
+      background: #444444;
+      border: 2px solid var(--grey-dark);
+      overflow: hidden;
+    }
+    &__name {
+      span {
+        color: var(--grey-light);
+      }
+    }
+  }
+
+  .chart {
+    margin-top: rem(40);
+  }
+}

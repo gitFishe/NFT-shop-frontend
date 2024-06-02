@@ -1,0 +1,87 @@
+@import "../mixins";
+
+.authorization {
+  background-color: var(--bg);
+  &__content {
+    min-height: calc(100vh - rem(100));
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__img {
+    margin: auto 0;
+    max-width: 50%;
+    width: 100%;
+    position: relative;
+    height: fit-content;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    & > * {
+      border-radius: rem(25);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__main {
+    margin-right: auto;
+    width: rem(460);
+    margin-left: rem(60);
+    padding: rem(100) 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      margin-bottom: rem(20);
+    }
+    button {
+      width: rem(330);
+    }
+  }
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: rem(40) 0 rem(30);
+    label {
+      width: 100%;
+    }
+    >:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+    button {
+      margin-top: rem(25);
+    }
+    a span {
+      text-decoration: underline;
+    }
+  }
+  .passwordRule {
+    position: relative;
+    &::before {
+      transition: opacity var(--hover-transition);
+      opacity: 1;
+      content: 'Minimum length 6 symbols';
+      position: absolute;
+      text-align: center;
+      padding: rem(10);
+      border-radius: rem(10);
+      background-color: var(--gray);
+      color: var(--white);
+      left: 50%;
+      top: rem(-20);
+      transform: translate(-50%,-50%);
+    }
+  }
+}

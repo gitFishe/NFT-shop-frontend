@@ -1,0 +1,22 @@
+:root {
+  --white: #fff;
+  --white-dark:#D7D7D7;
+  --black: #000;
+  --bg:#05121B;
+  --bg-light:#121e27;
+
+  --gradient-purple: linear-gradient(270deg, rgba(102,124,203,1) 0%, rgba(168,60,171,1) 62%, rgba(182,46,164,1) 100%);
+  --gradient-blue: linear-gradient(270deg, rgba(70,138,247,1) 0%, rgba(88,152,249,1) 15%, rgba(111,169,250,1) 28%, rgba(130,183,251,1) 39%, rgba(153,200,254,1) 50%, rgba(166,207,253,1) 60%, rgba(182,216,254,1) 70%, rgba(196,223,253,1) 80%, rgba(208,229,253,1) 90%, rgba(216,233,254,1) 100%);
+
+  --grey:#3E3E3E;
+  --grey-dark:#3B393C;
+  --grey-light:#828082;
+
+
+
+  --hover-transition: 0.3s ease-in-out;
+  --hover-transition-faster: 0.2s ease-in-out;
+
+  --font-fira: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+

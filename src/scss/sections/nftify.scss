@@ -1,0 +1,103 @@
+@import "../mixins";
+
+.nftify {
+  padding-top: rem(100);
+  &__content {
+    padding: rem(40) rem(80);
+    background: var(--gradient-blue);
+    border-radius: rem(50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text {
+    flex-shrink: 3;
+    max-width: rem(784);
+    margin-right: rem(25);
+    font-weight: 600;
+    h2 {
+      margin-bottom: rem(20);
+    }
+    &-arrow {
+      width: rem(38);
+      img {
+        object-fit: contain;
+        height: 100%;
+      }
+    }
+    a {
+      margin-top: rem(40);
+      display: flex;
+      align-items: center;
+      &:hover{
+        span {
+          text-decoration: underline rem(3) var(--bg);
+        }
+      }
+      >:not(:first-child) {
+        margin-left: rem(18);
+      }
+      span {
+        transition: text-decoration-color var(--hover-transition-faster);
+        text-decoration: underline rem(3) transparent;
+      }
+    }
+    * {
+      color: var(--grey-dark) !important;
+    }
+  }
+  &__images {
+    flex-shrink: 1;
+    width: rem(695);
+    height: rem(586);
+    position: relative;
+    * {
+      position: absolute;
+      width: 100%;
+      background: linear-gradient(transparent, transparent) padding-box,
+      linear-gradient(270deg, rgba(70,138,247,1) 0%, rgba(88,152,249,1) 15%, rgba(111,169,250,1) 28%, rgba(130,183,251,1) 39%, rgba(153,200,254,1) 50%, rgba(166,207,253,1) 60%, rgba(182,216,254,1) 70%, rgba(196,223,253,1) 80%, rgba(208,229,253,1) 90%, rgba(216,233,254,1) 100%) border-box;
+      border:2px solid transparent;
+      border-radius: rem(10);
+      overflow: hidden;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+      }
+
+      & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-first {
+      left: 0;
+      top: 0;
+      max-width: rem(314);
+      &::before {
+        padding-top: 96%;
+      }
+    }
+    &-second{
+      left: 50%;
+      top: 50%;
+      max-width: rem(326);
+      transform: translate(-50%,-50%);
+      &::before {
+        padding-top: 119.6%;
+      }
+    }
+    &-third {
+      right: 0;
+      bottom: 0;
+      max-width: rem(360);
+      &::before {
+        padding-top: 107%;
+      }
+    }
+  }
+}
