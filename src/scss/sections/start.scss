@@ -6,18 +6,44 @@
   padding-top: rem(150);
   animation-duration: .75s;
   &__content {
-    max-width: rem(800);
-    h1 {
-      margin-bottom: rem(30);
+    display: flex;
+    &__text {
+      max-width: rem(800);
+      h1 {
+        margin-bottom: rem(30);
+      }
+      h5 {
+        color: var(--grey-light);
+      }
     }
-    h5 {
-      color: var(--grey-light);
-    }
+
   }
   &__button {
     margin-top: rem(40);
     >:not(:last-child) {
       margin-right: rem(30);
+    }
+  }
+  &__img {
+    position: relative;
+    max-width: rem(658);
+    width: 100%;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 82%;
+    }
+
+    & > * {
+      border-radius: rem(20);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

@@ -495,29 +495,26 @@ export function inputFocus(inputs) {
         });
     });
 }
-export function validateEmail(input) {
-
+export async function validateEmail(input) {
     const API_KEY = 'ef6f4020bc3b4b74b5870d7e940fd61c';
     const apiUrl = `https://emailvalidation.abstractapi.com/v1/?api_key=${API_KEY}&email=${input}`;
 
-    // Отправьте запрос на API
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.is_valid_format.value && data.deliverability === 'DELIVERABLE') {
-                console.log('Электронная почта валидна и доставляема.');
-                return true;
-            } else {
-                console.log('Электронная почта невалидна или недоставляема.');
-                input.parent().addClass('inputError');
-                return false;
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка при валидации электронной почты:', error);
-        });
-}
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
+        if (data.is_valid_format.value && data.deliverability === 'DELIVERABLE') {
+            console.log('Электронная почта валидна и доставляема.');
+            return true;
+        } else {
+            console.log('Электронная почта невалидна или недоставляема.');
+            return false;
+        }
+    } catch (error) {
+        console.error('Ошибка при валидации электронной почты:', error);
+        return false;
+    }
+}
 
 
 export function validPassword(input) {

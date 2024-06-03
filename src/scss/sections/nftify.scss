@@ -20,6 +20,8 @@
     }
     &-arrow {
       width: rem(38);
+      display: flex;
+      align-items: center;
       img {
         object-fit: contain;
         height: 100%;

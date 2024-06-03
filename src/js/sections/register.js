@@ -1,5 +1,4 @@
-import {authorizationRequest, validPassword, validPasswordConfirm} from "../main.js";
-import {validateEmail} from "../main.js";
+import {validateEmail,authorizationRequest, validPassword, validPasswordConfirm} from "../main.js";
 
 function inputFocus(inputs) {
     inputs.on('click', function() {
@@ -34,12 +33,16 @@ function registerInputs() {
             }
         });
 
-        // if (inputEmail.val().length !== 0) {
-        //     if(validateEmail(inputEmail.val()) === false) {
-        //         allInputsFilled = false;
-        //         console.error('email error');
-        //     }
-        // }
+        (async function() {
+            if (inputEmail.val().length !== 0) {
+                const isValid = await validateEmail(inputEmail.val());
+                if (!isValid) {
+                    inputEmail.parent().addClass('inputError');
+                    allInputsFilled = false;
+                    console.error('email error');
+                }
+            }
+        })();
 
         if (!validPassword(inputPassword)) {
             inputPassword.parent().addClass('inputError');
