@@ -163,8 +163,7 @@ function createChart() {
 
 
 function getNftData() {
-    let data = $.cookie('token')
-    console.log(data)
+    let token = $.cookie('token')
 
     $(document).ajaxStop(function() {
         fadeIn($('.nft__main'),200, 'flex')
@@ -181,9 +180,19 @@ function getNftData() {
         success: function(msg) {
             console.log(msg);
 
-            $('.nft__buttons')
-
-
+            $.ajax({
+                "url": "http://localhost:5000/api/user/",
+                "method": "GET",
+                "headers": {
+                    "Authorization": `Bearer ${token}`
+                },
+                success: function(user) {
+                    console.log('hyuiasud')
+                        if(user.id === msg[0].ownerId) {
+                            $('.nft__buttons').hide()
+                        }
+                    }
+                });
 
             $('#nftName').text(msg[0].name)
             $('#nftDescr').text(msg[0].description)
