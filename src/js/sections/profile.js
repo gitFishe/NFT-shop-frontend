@@ -1,4 +1,4 @@
-import {dataTabs, underline} from "../main.js";
+import {dataTabs, underline,fadeIn} from "../main.js";
 
 $(document).ready(function() {
     underline($('.profile__tabs-block'))
@@ -98,10 +98,11 @@ const username = urlParams.get('username')
 function getUserData() {
     let token = $.cookie('token')
 
-    // $(document).ajaxStop(function() {
-    //     $('.edit__content').removeClass('hide');
-    //     console.log('stop')
-    // })
+
+    $(document).ajaxStop(function() {
+        fadeIn($('.profile'),200)
+        console.log('stop')
+    })
 
     async function getLoggedInUser() {
         return new Promise((resolve, reject) => {
@@ -173,9 +174,16 @@ function getUserData() {
         url: `http://localhost:5000/api/nftEntity/getAll/${username}?count=8`,
         "method": "GET",
         success: function(msg) {
-            console.log(msg);
+            console.log('asjhodakjsd',msg);
+            $.ajax({
+                "url": `http://localhost:5000/api/user/id/${msg[0].ownerId}`,
+                "method": "GET",
+                success: function(msgUser) {
+                    console.log(msg);
 
-            generateNft(msg)
+                    generateNft(msg,msgUser.avatarImage)
+                }
+            });
         },
         error: function(msg){
             console.log(msg);
@@ -189,7 +197,7 @@ getUserData()
 
 
 
-function generateNft(array) {
+function generateNft(array,userAvatar) {
     let nftPage = $('#nftPage');
     array.forEach((obj) => {
         let card = `
@@ -197,7 +205,7 @@ function generateNft(array) {
                 <div class="card__img"><img src="http://localhost:5000/${obj.image}" alt=""></div>
                 <a href="/nft.html?hash=${obj.hash}" class="card__name">
                     <div class="title-h5"><h5>${obj.name}</h5></div>
-                    <div class="avatar style-gradient-border"><img src="img/avatar2.png" alt=""></div>
+                    <div class="avatar style-gradient-border"><img src="http://localhost:5000/${userAvatar}" alt=""></div>
                 </a>
                 <div class="card__price">
                     <div class="style-paragraph--two color--grey-light"><span>Price</span></div>

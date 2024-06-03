@@ -167,22 +167,24 @@ function getNftData() {
     console.log(data)
 
     $(document).ajaxStop(function() {
-        $('.edit__content').removeClass('hide');
+        fadeIn($('.nft__main'),200, 'flex')
         console.log('stop')
     })
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const hash = urlParams.get('hash');
 
     $.ajax({
-        "url": "http://localhost:5000/api/nftEntity/get/0.mluuvqcyfx",
+        "url": `http://localhost:5000/api/nftEntity/get/${hash}`,
         "method": "GET",
         "timeout": 0,
         success: function(msg) {
             console.log(msg);
 
-            $('#editName').val(msg.name)
-            $('#editId').val(msg.username)
-            $('#editEmail').val(msg.email)
-            $('#editBio').val(msg.bio)
+            $('#nftName').text(msg[0].name)
+            $('#nftDescr').text(msg[0].description)
+            $('#nftPrice').text(msg[0].price)
+            $('#nftImg').attr("src",`http://localhost:5000/${msg[0].image}`)
         },
         error: function(msg) {
             console.log(msg);

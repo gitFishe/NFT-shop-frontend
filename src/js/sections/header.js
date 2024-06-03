@@ -26,7 +26,8 @@ function avatarLink() {
             "Authorization": `Bearer ${$.cookie('token')}`
         },
         success: function(msg) {
-
+            $('#headerAvatar').attr('href',`http://localhost:3000/profile.html?username=${msg.username}`);
+            $('#headerAvatar img').attr("src",`http://localhost:5000/${msg.avatarImage}`)
         },
         error: function(msg) {
             console.log(msg);

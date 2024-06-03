@@ -1,11 +1,13 @@
+import {fadeIn} from "../main.js";
 function inputsUserInformation() {
     let data = $.cookie('token')
     console.log(data)
 
     $(document).ajaxStop(function() {
-        $('.edit__content').removeClass('hide');
+        fadeIn($('.edit'),200)
         console.log('stop')
     })
+
 
 
     $.ajax({
@@ -21,7 +23,9 @@ function inputsUserInformation() {
             $('#editId').val(msg.username)
             $('#editEmail').val(msg.email)
             $('#editBio').val(msg.bio)
+            console.log(msg.backgroundImage)
             $('.edit__info-avatar img').attr("src",`http://localhost:5000/${msg.avatarImage}`)
+            $('.edit__bg img').attr("src",`http://localhost:5000/${msg.backgroundImage}`)
 
         },
         error: function(msg) {
@@ -55,6 +59,7 @@ function updateUserInfo() {
     form.append("email", $('#editEmail').val());
     console.log($('#editEmail').val())
     form.append("avatarImage", $('#editAvatar')[0].files[0]);
+    form.append("backgroundImage", $('#editBg')[0].files[0]);
 
     // form.append("backgroundImage", fileInput.files[0], "220903280-3730025968.png");
 
@@ -89,15 +94,28 @@ function uploadImg() {
     input.click()
 
     input.on('change', function(e) {
-        console.log(input[0].files[0]);
         let reader = new FileReader();
         reader.readAsDataURL(input[0].files[0]);
         reader.onload = function(e) {
             $('.edit__info-avatar img').attr('src', e.target.result);
         }
     })
+}
 
+function uploadBbg() {
+    let input = $('#editBg')
+    input.click()
+
+    input.on('change', function(e) {
+        console.log(input[0].files[0]);
+        let reader = new FileReader();
+        reader.readAsDataURL(input[0].files[0]);
+        reader.onload = function(e) {
+            $('.edit__bg img').attr('src', e.target.result);
+        }
+    })
 }
 
 $('#uploadImg').click(uploadImg);
 
+$('#bgButton').click(uploadBbg);

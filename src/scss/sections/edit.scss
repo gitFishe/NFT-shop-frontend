@@ -1,17 +1,17 @@
 @import "../mixins";
 
 .edit {
+  opacity: 0;
   padding-bottom: rem(50);
-
-  .hide {
-    opacity: 0;
-  }
   &__bg {
     width: 100%;
     height: min(400px, 44.44vh);
     img {
       height: 100%;
       width: 100%;
+    }
+    input {
+      display: none;
     }
   }
   &__heading {

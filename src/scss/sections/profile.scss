@@ -1,7 +1,9 @@
 @import "../mixins";
 
 .profile {
+  opacity: 0;
   padding-bottom: rem(50);
+  min-height: 100vh;
   &__bg {
     width: 100%;
     height: min(400px, 44.44vh);
@@ -39,13 +41,14 @@
       >:not(:last-child) {
         margin-right: rem(25);
       }
-      button {
+      >*{
         margin-left: auto;
         min-width: rem(50);
         height: rem(50);
         border-radius: rem(25);
         display: flex;
         align-items: center;
+        align-content: center;
         justify-content: center;
         background-color: var(--grey-light);
         span {
