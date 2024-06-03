@@ -130,6 +130,8 @@ function getUserData() {
                 method: "GET",
                 success: function(msg) {
                     console.log(msg);
+                    $('.profile__bg img').attr("src",`http://localhost:5000/${msg.backgroundImage}`)
+                    $('.profile__info-avatar img').attr("src",`http://localhost:5000/${msg.avatarImage}`)
                     resolve(msg);
                 },
                 error: function(msg){

@@ -181,6 +181,10 @@ function getNftData() {
         success: function(msg) {
             console.log(msg);
 
+            $('.nft__buttons')
+
+
+
             $('#nftName').text(msg[0].name)
             $('#nftDescr').text(msg[0].description)
             $('#nftPrice').text(msg[0].price)
@@ -195,3 +199,43 @@ function getNftData() {
     });
 }
 getNftData()
+
+
+function buyNft() {
+    let token = $.cookie('token')
+
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const hash = urlParams.get('hash');
+    let form = new FormData();
+    form.append("hash",hash)
+
+
+
+    $.ajax({
+        "url": "http://localhost:5000/api/nftEntity/buy",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Authorization": `Bearer ${token}`
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form,
+
+        success: function(msg) {
+            console.log(msg);
+
+        },
+        error: function(msg) {
+            console.log(msg);
+            msg.responseJSON.errors.forEach((error) => {
+                console.error(error.msg);
+            });
+        }
+    });
+}
+
+buyNft()
