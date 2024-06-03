@@ -1,7 +1,6 @@
 @import "../mixins";
 
 .trending-creators {
-  background-color: var(--bg);
   padding-top: rem(100);
   &__content {
     display: flex;

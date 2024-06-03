@@ -462,6 +462,7 @@ export function fadeOut(el, timeout) {
 
 
 export function authorizationRequest(data, type) {
+    console.log(data)
     $.ajax({
         url: `http://localhost:5000/api/auth/${type}`,
         type: "POST",
@@ -470,10 +471,10 @@ export function authorizationRequest(data, type) {
         success: function(msg){
             if(type === 'login') {
                 console.log(msg)
-                $.cookie('token', msg.token)
+                $.cookie('token', msg.token, { expires: 7 })
                 console.log($.cookie('token'))
             } else if(type === 'registration') {
-                $.cookie('token', msg.token)
+                $.cookie('token', msg.token, { expires: 7 })
                 console.log($.cookie('token'))
             } else if (type === 'updateInfo') {
 
@@ -567,7 +568,6 @@ export function dataTabs(buttons, pages, time) {
     buttons.each(function() {
         $(this).on('click', () => {
             let clickedTab = $(this).attr('data-tab');
-            console.log(clickedTab)
             fadeOut(pages.filter('.active'), timer)
 
             setTimeout(function() {

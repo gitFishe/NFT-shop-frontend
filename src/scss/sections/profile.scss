@@ -2,7 +2,6 @@
 
 .profile {
   padding-bottom: rem(50);
-  background-color: var(--bg);
   &__bg {
     width: 100%;
     height: min(400px, 44.44vh);
@@ -31,6 +30,12 @@
       display: flex;
       align-items: center;
       margin-left: auto;
+      >:first-child {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
       >:not(:last-child) {
         margin-right: rem(25);
       }

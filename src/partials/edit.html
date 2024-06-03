@@ -10,8 +10,9 @@
                 </div>
             </div>
             <div class="edit__info">
-                <div class="edit__info-avatar"><img src="img/avatar2.png" alt=""></div>
-                <button class="btn btn--medium"><span>Upload Profile Photo</span></button>
+                <div class="edit__info-avatar"><img src="img/default-avatar.png" alt=""></div>
+                <button id="uploadImg" class="btn btn--medium"><span>Upload Profile Photo</span></button>
+                <input id="editAvatar" type="file">
             </div>
         </div>
         <div class="edit__main">
@@ -23,8 +24,8 @@
                         <input type="text" id="editName">
                     </div>
                     <div class="input input--square">
-                        <span>User name*</span>
-                        <input id="editId" type="text">
+                        <span>Email*</span>
+                        <input id="editEmail" type="text">
                     </div>
                 </div>
                 <div class="edit__content-line">
@@ -52,7 +53,7 @@
                     <textarea type="text" id="editBio"></textarea>
                 </div>
             </div>
-            <button class="btn btn--gradient-bg color--grey"><span>Update Profile</span></button>
+            <button id="updateBtn" class="btn btn--gradient-bg color--grey"><span>Update Profile</span></button>
             <div class="thanks btn--gradient-text"><p>NFT world now knows you well Thanks for detailing</p></div>
         </div>
     </div>

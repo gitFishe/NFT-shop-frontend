@@ -1,7 +1,6 @@
 @import "../mixins";
 
 .authorization {
-  background-color: var(--bg);
   &__content {
     min-height: calc(100vh - rem(100));
     display: flex;

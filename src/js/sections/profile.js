@@ -89,3 +89,125 @@ $(document).ready(function() {
 //         updateUnderline();
 //     });
 // }
+
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const username = urlParams.get('username')
+
+function getUserData() {
+    let token = $.cookie('token')
+
+    // $(document).ajaxStop(function() {
+    //     $('.edit__content').removeClass('hide');
+    //     console.log('stop')
+    // })
+
+    async function getLoggedInUser() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `http://localhost:5000/api/user`,
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                method: "GET",
+                success: function(msg) {
+                    console.log(msg);
+                    resolve(msg.username);
+                },
+                error: function(){
+                    resolve(undefined);
+                }
+            });
+        });
+    }
+
+    async function getUserProfile(username) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `http://localhost:5000/api/user/${username}`,
+                method: "GET",
+                success: function(msg) {
+                    console.log(msg);
+                    resolve(msg);
+                },
+                error: function(msg){
+                    console.log(msg);
+                    msg.responseJSON.message.forEach((error) => {
+                        console.error(error);
+                    });
+                    reject(new Error("Error getting user profile"));
+                }
+            });
+        });
+    }
+
+    async function init() {
+        try {
+            let logginedUsername = undefined;
+            if(token) {
+                logginedUsername = await getLoggedInUser();
+            }
+
+            const profileData = await getUserProfile(username);
+
+            const profileUsername = profileData.username;
+
+            $('#profileDescription').text(profileData.bio);
+            $('#profileUserId').text(profileData.username);
+            $('#profileName').text(profileData.name);
+
+            if (logginedUsername === profileUsername) {
+                $('#btnEditProfile').addClass('show');
+                console.log('true');
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    init();
+
+    // запрос нфтішок
+    $.ajax({
+        url: `http://localhost:5000/api/nftEntity/getAll/${username}?count=8`,
+        "method": "GET",
+        success: function(msg) {
+            console.log(msg);
+
+            generateNft(msg)
+        },
+        error: function(msg){
+            console.log(msg);
+            msg.responseJSON.message.forEach((error) => {
+                console.error(error);
+            });
+        }
+    });
+}
+getUserData()
+
+
+
+function generateNft(array) {
+    let nftPage = $('#nftPage');
+    array.forEach((obj) => {
+        let card = `
+            <div class="card card--borderless wow ">
+                <div class="card__img"><img src="http://localhost:5000/${obj.image}" alt=""></div>
+                <a href="/nft.html?hash=${obj.hash}" class="card__name">
+                    <div class="title-h5"><h5>${obj.name}</h5></div>
+                    <div class="avatar style-gradient-border"><img src="img/avatar2.png" alt=""></div>
+                </a>
+                <div class="card__price">
+                    <div class="style-paragraph--two color--grey-light"><span>Price</span></div>
+                    <div class="card__price-block style-buttons--small">
+                        <span>${obj.price} ETH</span>
+                        <span>(7.05 USD)</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        nftPage.append(card);
+    })
+}

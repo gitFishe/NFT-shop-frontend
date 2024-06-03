@@ -1,6 +1,4 @@
-import {authorizationRequest} from "../main.js";
-import {validPassword} from "../main.js";
-import {validPasswordConfirm} from "../main.js";
+import {authorizationRequest, validPassword, validPasswordConfirm} from "../main.js";
 import {validateEmail} from "../main.js";
 
 function inputFocus(inputs) {
